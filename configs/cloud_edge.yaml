@@ -1,0 +1,31 @@
+top_k: 2
+q_min: 0.70
+utility_weights:
+  alpha_quality: 0.45
+  beta_latency: 0.30
+  gamma_cost: 0.10
+  delta_resource_load: 0.15
+ablation:
+  use_quality_constraint: true
+  use_resource_awareness: true
+  use_cost: true
+  use_topk: true
+models:
+  - name: model-a
+    capability_prior: 0.98
+    capability_level: 0.95
+    required_vram_gb: 20
+    base_latency_ms: 400
+    cost_per_1k_tokens: 0.030
+  - name: model-b
+    capability_prior: 0.86
+    capability_level: 0.70
+    required_vram_gb: 10
+    base_latency_ms: 220
+    cost_per_1k_tokens: 0.010
+  - name: model-c
+    capability_prior: 0.70
+    capability_level: 0.45
+    required_vram_gb: 6
+    base_latency_ms: 120
+    cost_per_1k_tokens: 0.003

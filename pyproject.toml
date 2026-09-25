@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "routellm-hierarchical-routing"
+version = "0.1.0"
+description = "Reproducible hierarchical resource-aware routing extension of RouteLLM"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+license = {file = "LICENSE"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["routellm*", "simulation*"]

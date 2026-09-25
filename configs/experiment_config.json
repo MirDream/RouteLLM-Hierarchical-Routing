@@ -1,0 +1,52 @@
+{
+  "top_k": 2,
+  "q_min": 0.70,
+  "utility_weights": {
+    "alpha_quality": 0.45,
+    "beta_latency": 0.30,
+    "gamma_cost": 0.10,
+    "delta_resource_load": 0.15
+  },
+  "normalization": {
+    "latency_scale_ms": 2500.0
+  },
+  "ablation": {
+    "use_quality_constraint": true,
+    "use_resource_awareness": true,
+    "use_cost": true,
+    "use_topk": true
+  },
+  "experiment": {
+    "seeds": [1, 2, 3, 4, 5],
+    "request_count": 300,
+    "sla_ms": 1200.0,
+    "strategies": [
+      "capability_only",
+      "resource_only",
+      "joint_single_stage",
+      "hierarchical"
+    ],
+    "workloads": {
+      "low_load": {
+        "arrival_gap_s": [1.45, 2.10]
+      },
+      "medium_load": {
+        "arrival_gap_s": [0.72, 1.05]
+      },
+      "high_load": {
+        "arrival_gap_s": [0.32, 0.58]
+      }
+    }
+  },
+  "nodes": {
+    "service_rates": {
+      "cloud": 0.72,
+      "edge-1": 1.28
+    },
+    "default_nodes": {
+      "model-a": "cloud",
+      "model-b": "cloud",
+      "model-c": "edge-1"
+    }
+  }
+}
